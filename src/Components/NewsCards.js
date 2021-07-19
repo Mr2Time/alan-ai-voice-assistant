@@ -4,7 +4,7 @@ import alanAiImage from "../Images/alan-ai.jpg";
 
 function NewsCards({ articles, activeArticle }) {
   const infoCards = [
-    { color: "#00838f", title: "Latest News", text: "Give me the latest news" },
+    { color: "#00838f", title: "Small talk", text: "Talk to me" },
     {
       color: "#1565c0",
       title: "News by Categories",
