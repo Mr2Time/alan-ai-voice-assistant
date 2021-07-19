@@ -2,7 +2,7 @@ import React from "react";
 import NewsCard from "./NewsCard";
 import alanAiImage from "../Images/alan-ai.jpg";
 
-function NewsCards({ articles }) {
+function NewsCards({ articles, activeArticle }) {
   const infoCards = [
     { color: "#00838f", title: "Latest News", text: "Give me the latest news" },
     {
@@ -62,16 +62,18 @@ function NewsCards({ articles }) {
   }
 
   return (
-    <div>
-      <div className="grid grid-cols-1 place-items-center">
-        <img src={alanAiImage} className="w-96 m-4 rounded" alt="alan logo" />
+      <div>
+        <div className="grid grid-cols-1 place-items-center">
+          <img src={alanAiImage} className="w-96 m-4 rounded" alt="alan logo" />
+        </div>
+
+        <div className="grid grid-cols-1 grid-flow-row place-items-center col-span-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mx-auto">
+          {articles.map((article, i) => (
+            <NewsCard article={article} i={i} activeArticle={activeArticle} />
+          ))}
+        </div>
       </div>
-      <div className="grid grid-cols-1 grid-flow-row place-items-center col-span-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mx-auto">
-        {articles.map((article, i = 1) => (
-          <NewsCard article={article} i={i} />
-        ))}
-      </div>
-    </div>
+
   );
 }
 
