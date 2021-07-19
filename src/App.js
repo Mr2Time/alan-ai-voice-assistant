@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import alanBtn from "@alan-ai/alan-sdk-web";
 
+import NewsCards from "./Components/NewsCards";
+
 function App() {
 
   const [newsArticles, setNewsArticles] = useState([])
@@ -9,7 +11,7 @@ function App() {
     alanBtn({
       key: process.env.REACT_APP_alanKey,
       onCommand: ({ command, articles }) => {
-        if (command === "newHeadLines") {
+        if (command === "newHeadlines") {
           setNewsArticles(articles)
         }
       },
@@ -17,8 +19,8 @@ function App() {
   }, []);
 
   return (
-    <div className="h-screen w-screen border-box overscroll-auto">
-      <h1>Alan AI NEWS APP</h1>
+    <div className="h-full w-full border-box overscroll-auto">
+      <NewsCards articles={newsArticles}/>
     </div>
   );
 }
